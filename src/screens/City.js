@@ -1,6 +1,6 @@
 import React from "react"
 import { SafeAreaView, Text, ImageBackground, StyleSheet, StatusBar, View } from "react-native"
-import { Feather } from "@expo/vector-icons"
+import IconText from "../components/IconText"
 
 const City = () => {
     return (
@@ -10,19 +10,31 @@ const City = () => {
             style={styles.imageLayout}>
                 <Text style={[styles.cityName, styles.cityText]}>Chicago</Text>
                 <Text style={[styles.countryName, styles.cityText]}>USA</Text>
-                <View style={styles.populationWrapper}>
-                    <Feather name={'user'} size={50} color={'white'}/>
-                    <Text style={styles.populationText}>8000</Text>
+                <View style={[styles.populationWrapper, styles.rowLayout]}>
+                  <IconText 
+                    iconName={'user'} 
+                    iconColor={'white'} 
+                    bodyText={'8000'} 
+                    bodyTextStyles={styles.populationText}
+                  />
                 </View>
-                <View style={styles.riseSetWrapper}>
-                    <Feather name={'sunrise'} size={50} color={'white'}/>
-                    <Text style={styles.riseSetText}>05:46:58am</Text>
-                    <Feather name={'sunset'} size={50} color={'white'}/>
-                    <Text style={styles.riseSetText}>17:28:00pm</Text>
+                <View style={[styles.riseSetWrapper, styles.rowLayout]}>
+                    <IconText  
+                        iconName={'sunrise'}
+                        iconColor={'white'}
+                        bodyText={'05:46:58am'}
+                        bodyTextStyles={styles.riseSetText}
+                    />
+                    <IconText 
+                        iconName={'sunset'}
+                        iconColor={'white'}
+                        bodyText={'17:28:00pm'}
+                        bodyTextStyles={styles.riseSetText}
+                    />
                 </View>
             </ImageBackground>
         </SafeAreaView>
-    )
+    ) 
 }
 
 const styles = StyleSheet.create({
@@ -46,27 +58,25 @@ const styles = StyleSheet.create({
         color: 'black'        
     },
     populationWrapper: {
-        flexDirection: 'row',
-        alignItems: 'center',
         justifyContent: 'center',
         marginTop: 30
     },
     populationText: {
         fontSize: 25,
         marginLeft: 7.5,
-        color: 'white',
-        fontWeight: 'bold'
+        color: 'white'
     },
     riseSetWrapper: {
-        flexDirection: 'row',
-        alignItems: 'center',
         justifyContent: 'space-around',
         marginTop: 30
     },
     riseSetText: {
         fontSize: 20,
-        color: 'white',
-        fontWeight: 'bold'
+        color: 'white'
+    },
+    rowLayout: {
+        flexDirection: 'row',
+        alignItems: 'center'
     }
 })
 
