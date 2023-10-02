@@ -1,5 +1,6 @@
 import React from "react"
-import { SafeAreaView, Text, ImageBackground, StyleSheet, StatusBar } from "react-native"
+import { SafeAreaView, Text, ImageBackground, StyleSheet, StatusBar, View } from "react-native"
+import { Feather } from "@expo/vector-icons"
 
 const City = () => {
     return (
@@ -9,7 +10,16 @@ const City = () => {
             style={styles.imageLayout}>
                 <Text style={[styles.cityName, styles.cityText]}>Chicago</Text>
                 <Text style={[styles.countryName, styles.cityText]}>USA</Text>
-                <Text></Text>
+                <View style={styles.populationWrapper}>
+                    <Feather name={'user'} size={50} color={'white'}/>
+                    <Text style={styles.populationText}>8000</Text>
+                </View>
+                <View style={styles.riseSetWrapper}>
+                    <Feather name={'sunrise'} size={50} color={'white'}/>
+                    <Text style={styles.riseSetText}>05:46:58am</Text>
+                    <Feather name={'sunset'} size={50} color={'white'}/>
+                    <Text style={styles.riseSetText}>17:28:00pm</Text>
+                </View>
             </ImageBackground>
         </SafeAreaView>
     )
@@ -34,6 +44,29 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         fontWeight: 'bold',
         color: 'black'        
+    },
+    populationWrapper: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 30
+    },
+    populationText: {
+        fontSize: 25,
+        marginLeft: 7.5,
+        color: 'white',
+        fontWeight: 'bold'
+    },
+    riseSetWrapper: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        marginTop: 30
+    },
+    riseSetText: {
+        fontSize: 20,
+        color: 'white',
+        fontWeight: 'bold'
     }
 })
 
