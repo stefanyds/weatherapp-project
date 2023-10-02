@@ -3,33 +3,35 @@ import { SafeAreaView, Text, ImageBackground, StyleSheet, StatusBar, View } from
 import IconText from "../components/IconText"
 
 const City = () => {
+    const { container, imageLayout, cityName, cityText, countryName, populationWrapper, rowLayout, populationText, riseSetWrapper, riseSetText } = styles
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={container}>
             <ImageBackground 
             source={require('../../assets/city-background.jpg')} 
-            style={styles.imageLayout}>
-                <Text style={[styles.cityName, styles.cityText]}>Chicago</Text>
-                <Text style={[styles.countryName, styles.cityText]}>USA</Text>
-                <View style={[styles.populationWrapper, styles.rowLayout]}>
+            style={imageLayout}
+            >
+                <Text style={[cityName, cityText]}>Chicago</Text>
+                <Text style={[countryName, cityText]}>USA</Text>
+                <View style={[populationWrapper, rowLayout]}>
                   <IconText 
                     iconName={'user'} 
                     iconColor={'white'} 
                     bodyText={'8000'} 
-                    bodyTextStyles={styles.populationText}
+                    bodyTextStyles={populationText}
                   />
                 </View>
-                <View style={[styles.riseSetWrapper, styles.rowLayout]}>
+                <View style={[riseSetWrapper, rowLayout]}>
                     <IconText  
                         iconName={'sunrise'}
                         iconColor={'white'}
                         bodyText={'05:46:58am'}
-                        bodyTextStyles={styles.riseSetText}
+                        bodyTextStyles={riseSetText}
                     />
                     <IconText 
                         iconName={'sunset'}
                         iconColor={'white'}
                         bodyText={'17:28:00pm'}
-                        bodyTextStyles={styles.riseSetText}
+                        bodyTextStyles={riseSetText}
                     />
                 </View>
             </ImageBackground>
