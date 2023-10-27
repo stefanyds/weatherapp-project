@@ -9,23 +9,19 @@ import { useGetWeather } from "./hooks/useGetWeather"
 const App = () => {
   const [loading, error, weather] = useGetWeather()
 
-  if(weather) {
-    console.log(weather)
+  if (weather && weather.list) {
+    return (
+      <NavigationContainer>
+        <Tabs weather={weather} />
+      </NavigationContainer>
+    )
   }
-
-  if (loading) {
     return (
       <View style={styles.container}>
         <ActivityIndicator size={'large'} color={'blue'} />
       </View>
     )
-  }
 
-  return (
-    <NavigationContainer>
-      <Tabs />
-    </NavigationContainer>
-  )
 }
 
 const styles = StyleSheet.create({
